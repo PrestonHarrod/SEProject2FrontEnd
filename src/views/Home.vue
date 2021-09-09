@@ -1,7 +1,9 @@
 <template>
   <div>
-    <H1>Courses Home</H1>
-    <CourseListDisplay v-for="course in courses" :key="course.id" :list="course"/> 
+ 
+    <p>"hello"</p>
+    <span> Name | Hours | Course Number </span>
+    <table> <CourseListDisplay v-for="course in courses" :key="course.id" :course="course"/> </table>
   </div>
 </template>
 
@@ -18,6 +20,9 @@ export default {
   data() {
     return {
       courses: [],
+      message : ""
+       
+      
 
 
     }
@@ -25,10 +30,11 @@ export default {
   created() {
       courseServices.getCourses() 
       .then(response => {
-        this.courses = response.data.courses
+        this.courses = response.data
+        console.log("here")
       })
       .catch(error => {
-        this.message = error.data.message
+        console.log(error)
       })
   }
 }

@@ -2,9 +2,9 @@ import axios from "axios";
 
 var baseurl = "";
 if (process.env.NODE_ENV === "development") {
-  baseurl = "http://localhost/api";
+  baseurl = "http://localhost/api/";
 } else {
-  baseurl = "/api";
+  baseurl = "/api/";
 }
 
 const apiClient = axios.create({
@@ -13,6 +13,7 @@ const apiClient = axios.create({
     Accept: "application/json",
     "Content-Type": "application/json",
     "X-Requested-With": "XMLHttpRequest",
+    "Access-Control-Allow-Origin" : "*",
     crossDomain: true
   },
   transformRequest: (data, headers) => {

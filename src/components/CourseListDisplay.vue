@@ -1,16 +1,17 @@
 <template>
   <div>
-    <span> {{ course.name}} </span>
-    <span> {{course.hours}} </span>
-    <span> {{course["Course Number"]}} </span>
-    <router-link :to="{ name: 'edit', params: { id: list.id } }">
+      <tr> 
+          <th>{{course.Name}}</th>
+          <th>{{course.Hours}}</th>
+          <th>{{course["Course Number"]}}</th>
+        <th> <router-link :to="{ name: 'edit', params: { id: course.id } }">
       <span>edit</span>
-    </router-link>
-    <span>|</span>
-    <router-link :to="{ name: 'delete', params: { id: list.id } }">
-      <span>delete</span>
-    </router-link>
-    <span>)</span>
+    </router-link></th>
+    <th><router-link :to="{ name: 'delete', params: { id: course.id } }">
+      <span>delete</span> 
+      </router-link> </th>
+    </tr>
+    
   </div>
 </template>
 
