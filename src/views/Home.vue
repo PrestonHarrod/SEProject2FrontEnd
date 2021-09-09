@@ -1,22 +1,24 @@
 
 <template>
   <div>
-      <v-container>
-        <v-row>
-            <v-col>
-                <H1>Course List</H1>
-                <v-data-table
-                    :headers="headers"
-                    :items="courses"
-                    :items-per-page="25"
-                    class="elevation - 1"
-                    mobile-breakpoint="0"
-                    @click:row="selectRow"
-                >
-                </v-data-table>
-            </v-col>
-        </v-row>
-    </v-container>
+         <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Hours</th>
+                    <th>Course Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="course in courses" :key="course.id" :course="course">
+                    <td>{{course.Name}}</td>
+                    <td>{{course.Hours}}</td>
+                    <td>{{course["Course Number"]}}</td>
+                    <td> <router-link :to="{ name: 'edit', params: { id: course.id } }"><span>Edit</span></router-link> </td>
+                    <td> <router-link :to="{ name: 'delete', params: { id: course.id } }"><span>Delete</span></router-link> </td>
+                </tr>
+            </tbody>
+        </table>
  
     <!-- <p>"hello"</p>
     <span> Name | Hours | Course Number </span>
@@ -33,30 +35,13 @@ export default {
     components: {},
     data() {
         return {
-            dept: '',
             courses: [],
-            headers: [
-                {
-                    text: 'Course Number',
-                    align: 'left',
-                    sortable: true,
-                    value: 'number',
-                    width: "150"
-                },
-                {
-                    text: 'Course Name',
-                    value: 'name',
-                    align: 'left',
-                    sortable: false,
-                },
-            ],
         };
     },
   created() {
       courseServices.getCourses() 
       .then(response => {
         this.courses = response.data
-        console.log("here")
       })
       .catch(error => {
         console.log(error)
