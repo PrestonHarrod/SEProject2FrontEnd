@@ -1,12 +1,15 @@
 
 <template>
   <div>
+    <h1>Course Home</h1>
          <table class="table table-striped table-bordered">
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Hours</th>
                     <th>Course Number</th>
+                    <th>Edit</th>
+                     <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -14,16 +17,13 @@
                     <td>{{course.Name}}</td>
                     <td>{{course.Hours}}</td>
                     <td>{{course["Course Number"]}}</td>
-                    <td> <router-link :to="{ name: 'edit', params: { id: course.id } }"><span>Edit</span></router-link> </td>
-                    <td> <router-link :to="{ name: 'delete', params: { id: course.id } }"><span>Delete</span></router-link> </td>
+                    <td><v-btn large outlined>Edit</v-btn></td>
+                   <td><v-btn large outlined>Delete</v-btn></td>
                 </tr>
             </tbody>
         </table>
  
-    <!-- <p>"hello"</p>
-    <span> Name | Hours | Course Number </span>
-    <table> <CourseListDisplay v-for="course in courses" :key="course.id" :course="course"/> </table>
-  </div> -->
+
   </div>
 </template>
 
@@ -52,4 +52,22 @@ export default {
 
 
 
-<style></style>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #811429
+;
+  color: white;
+}
+</style>
