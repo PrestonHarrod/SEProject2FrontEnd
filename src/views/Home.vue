@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <h1>Course Home</h1>
+    <h1>Course Home: testing the change</h1>
          <table class="center">
             <thead>
                 <tr>
