@@ -1,5 +1,13 @@
 <template>
   <tr>
+    
+      <th>{{course.id}}</th>
+      <th>{{course.Hours}}</th>
+      <th>{{course["Course Number"]}}</th>
+      <th>{{course.Level}}</th>
+      <th>{{course.id}}</th>
+        
+    <!--
       <td>
       <span v-if="!editCourse">{{course.id}}</span>
       <input v-model="course.id" type="text" v-if="editCourse" />
@@ -33,33 +41,17 @@
       <button v-if="editCourse" @click="updateCourse">save</button>
       <button @click="deleteCourse()">delete</button>
     </td>
-
+  -->
   </tr>
+  
 </template>
 
 <script>
 export default {
   props: {
     course: Object
-  },
-  data(){
-    return{
-      editCourse: false
-    };
-  },
-  methods: {
-    editForm() {
-      this.editCourse = true;
-    },
-    deleteCourse() {
-      this.$emit("deleteCourse");
-      
-    },
-    updateCourse() {
-      this.$emit("updateCourse");
-      this.editCourse = false;
-    }
   }
+  
 }
 </script>
 

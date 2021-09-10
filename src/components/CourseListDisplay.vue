@@ -4,12 +4,8 @@
           <th>{{course.Name}}</th>
           <th>{{course.Hours}}</th>
           <th>{{course["Course Number"]}}</th>
-        <th> <router-link :to="{ name: 'edit', params: { id: course.id } }">
-      <span>edit</span>
-    </router-link></th>
-    <th><router-link :to="{ name: 'delete', params: { id: course.id } }">
-      <span>delete</span> 
-      </router-link> </th>
+          <button @click="$router.push('/api/courses/' + course.id)">View Course</button>
+       
     </tr>
     
   </div>
@@ -20,6 +16,7 @@ export default {
   props: {
     course: Object
   }
+  
 }
 </script>
 

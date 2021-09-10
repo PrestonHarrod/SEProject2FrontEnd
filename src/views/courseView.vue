@@ -1,22 +1,11 @@
 <template>
   <div>
-    <H1>Course Edit</H1>
-    <h2>Editing {{course.Name}}</h2>
-
-
-    <form @submit.prevent="updateCourse">
-      Name:
-      <input v-model="course.Name" type="text" id="id">
-      <input type="submit" name="submit" v-on:click.prevent="updateCourse()" >
-      <button name="cancel" v-on:click.prevent="cancel()">Cancel</button>
-    </form>
-    <button name="add" v-on:click.prevent="addForm()">Add Course</button>
- <center>
-  <table>
-    <ListItemDisplay v-for="course in courses" :key="course.id"  :course="course" @deleteCourse="deleteCourse(course.id)" @updateCourse="updateCourse(course)"/>
+    <router-link to="/api/courses">Course List</router-link>
+    <p></p>
+    <span> Name | Hours | Course Number | Hours | Level</span>
+  <table> <courseDisplay v-for="course in courses" :key="course.id"  :course="course"/>
 
   </table>
-  </center>
   
   
   </div>
@@ -34,21 +23,17 @@ export default {
   data() {
     return {
       course: {},
-      courses:{},
     }
   },
   created() {
-      courseServices.getList(this.id)
+      courseServices.getCourse(this.id)
       .then(response => {
-        this.course = response.data.course
+        this.course = response.data
       })
       .catch(error => {
         console.log('There was an error:', error.response)
       })
-         courseServices.getCourses(this.id)
-      .then(response => {
-        this.items = response.data.courses;
-      })
+        
       .catch(error => {
         console.log('There was an error:', error.response)
       })
@@ -60,7 +45,7 @@ export default {
     updateCourse() {
       courseServices.updateCourse(this.id, this.course)
         .then(() => {
-          this.$router.push({ name: 'course' })
+          this.$router.push({ name: 'view' })
         })
         .catch(error => {
          console.log(error)
