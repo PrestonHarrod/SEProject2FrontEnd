@@ -8,7 +8,7 @@
                     <th>Name</th>
                     <th>Hours</th>
                     <th>Course Number</th>
-                    <th>Edit</th>
+                    <th>View Course</th>
                      <th>Delete</th>
                 </tr>
             </thead>
@@ -17,7 +17,7 @@
                     <td>{{course.Name}}</td>
                     <td>{{course.Hours}}</td>
                     <td>{{course["Course Number"]}}</td>
-                    <td><v-btn large outlined>Edit</v-btn></td>
+                    <td><v-btn large outlined>View Course</v-btn></td>
                    <td><v-btn large outlined>Delete</v-btn></td>
                 </tr>
             </tbody>
