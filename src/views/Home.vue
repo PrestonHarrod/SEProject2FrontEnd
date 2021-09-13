@@ -1,15 +1,18 @@
+
 <template>
   <div>
     <h1>Course Home</h1>
+
     <td><button @click="$router.push('/api/courses/courseadd')">Add Course</button></td>
 
          <table class="table table-striped table-bordered">
+
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Hours</th>
                     <th>Course Number</th>
-                    <th>Course Details</th>
+                    <th>View Course</th>
                      <th>Delete</th>
                 </tr>
             </thead>
@@ -55,16 +58,24 @@ export default {
 <style>
 table {
   border-collapse: collapse;
-  width: 100%;
+  width: 50%;
+
 }
+
 th, td {
   text-align: left;
   padding: 8px;
 }
+
 tr:nth-child(even){background-color: #f2f2f2}
+
 th {
   background-color: #811429
 ;
   color: white;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
