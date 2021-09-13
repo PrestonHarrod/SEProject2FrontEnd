@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Course Home</h1>
-                        <td><button @click="$router.push('/api/courses/courseadd')">Add Course</button></td>
+    <td><button @click="$router.push('/api/courses/courseadd')">Add Course</button></td>
 
          <table class="table table-striped table-bordered">
             <thead>
@@ -18,8 +18,7 @@
                     <td>{{course.Name}}</td>
                     <td>{{course.Hours}}</td>
                     <td>{{course["Course Number"]}}</td>
-                    <td><button @click="$router.push('/api/courses/' + course.id)">View Course</button></td>
-
+                    <router-link :to="{name: 'view', params: {id: course.id}}"><span>View Course</span></router-link>
                 </tr>
             </tbody>
         </table>
@@ -36,7 +35,7 @@ export default {
     components: {},
     data() {
         return {
-            courses: [],
+            courses: {},
         };
     },
   created() {
