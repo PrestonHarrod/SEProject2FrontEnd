@@ -1,18 +1,15 @@
-
 <template>
   <div>
     <h1>Course Home</h1>
-
     <td><button @click="$router.push('/api/courses/courseadd')">Add Course</button></td>
 
          <table class="table table-striped table-bordered">
-
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Hours</th>
                     <th>Course Number</th>
-                    <th>View Course</th>
+                    <th>Course Details</th>
                      <th>Delete</th>
                 </tr>
             </thead>
@@ -29,6 +26,7 @@
 
   </div>
 </template>
+
 
 <script>
 //import CourseListDisplay from '@/components/CourseListDisplay.vue'
@@ -57,24 +55,16 @@ export default {
 <style>
 table {
   border-collapse: collapse;
-  width: 50%;
-
+  width: 100%;
 }
-
 th, td {
   text-align: left;
   padding: 8px;
 }
-
 tr:nth-child(even){background-color: #f2f2f2}
-
 th {
   background-color: #811429
 ;
   color: white;
-}
-.center {
-  margin-left: auto;
-  margin-right: auto;
 }
 </style>
