@@ -19,6 +19,8 @@
                     <td>{{course.Hours}}</td>
                     <td>{{course["Course Number"]}}</td>
                     <router-link :to="{name: 'view', params: {id: course.id}}"><span>View Course</span></router-link>
+                    <button class="delete-btn" @click="doDelete">Delete</button>
+                    <confirm-dialog ref="confirmDialog"></confirm-dialog>
                 </tr>
             </tbody>
         </table>
@@ -31,8 +33,9 @@
 <script>
 //import CourseListDisplay from '@/components/CourseListDisplay.vue'
 import courseServices from '@/services/courseServices.js'
+import ConfirmDialog from '@/components/ConfirmDialog.vue'
 export default {
-    components: {},
+    components: {ConfirmDialog},
     data() {
         return {
             courses: {},
@@ -46,7 +49,22 @@ export default {
       .catch(error => {
         console.log(error)
       })
-  }
+  },
+  methods: {
+    async doDelete() {
+            const ok = await this.$refs.confirmDialog.show({
+                title: 'Delete Page',
+                message: 'Are you sure you want to delete this course? It cannot be undone.',
+                okButton: 'Delete Forever',
+            })
+            // If you throw an error, the method will terminate here unless you surround it wil try/catch
+            if (ok) {
+                alert('You have successfully deleted this course.')
+            } else {
+                alert('You chose not to delete this course. Doing nothing now.')
+            }
+          }
+      }
 }
 </script>
 
@@ -66,5 +84,17 @@ th {
   background-color: #811429
 ;
   color: white;
+}
+.delete-btn {
+    margin-left: 100px;
+    padding: 0.5em 1em;
+    background-color: #eccfc9;
+    color: #c5391a;
+    border: 2px solid #ea3f1b;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 </style>
