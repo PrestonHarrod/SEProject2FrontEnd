@@ -27,7 +27,6 @@
   </div>
 </template>
 
-
 <script>
 //import CourseListDisplay from '@/components/CourseListDisplay.vue'
 import courseServices from '@/services/courseServices.js'
