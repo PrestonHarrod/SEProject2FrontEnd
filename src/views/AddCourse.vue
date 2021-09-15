@@ -4,7 +4,7 @@
   
 
     <form @submit.prevent="addCourse">
-      <table>
+      <table class="center">
       <tr>
       <td style="height: 30px; width: 80px; display: inline-block">  Department: </td>    
       <td style="height: 30px; display: inline-block" > <input v-model="course.Dept" type="text" id="courseDept"> </td>    
@@ -67,4 +67,8 @@ export default {
 </script>
 
 <style scoped>
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
