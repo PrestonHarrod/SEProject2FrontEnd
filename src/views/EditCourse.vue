@@ -87,4 +87,9 @@ export default {
 }
 </script>
 
-<style></style> 
+<style>
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+</style> 

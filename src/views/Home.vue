@@ -1,37 +1,36 @@
 <template>
   <div>
     <h1>Course Home</h1>
-    <td>
-      <button @click="$router.push('/api/courses/courseadd')">
-        Add Course
-      </button>
-    </td>
+    <button @click="$router.push('/api/courses/courseadd')">Add Course</button>
+    <button @click="getNextPage(--index)">Prev</button>
+    <button @click="getNextPage(++index)">Next</button>
 
-    <table class="table table-striped table-bordered">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Hours</th>
-          <th>Course Number</th>
-          <th>Course Details</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="course in courses" :key="course.id" :course="course">
-          <td>{{course.Name}}</td>
-          <td>{{course.Hours}}</td>
-          <td>{{course["Course Number"]}}</td>
-          <router-link :to="{name: 'view', params: {id: course.id}}"
-            ><span>View Course</span></router-link
-          >
-          <button class="delete-btn" @click="doDelete(courses, course.id)">
+
+         <table class="center">
+
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Hours</th>
+                    <th>Course Number</th>
+                    <th>View Course</th>
+                     <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="course in courses" :key="course.id" :course="course">
+                    <td>{{course.Name}}</td>
+                    <td>{{course.Hours}}</td>
+                    <td>{{course["Course Number"]}}</td>
+
+                    <router-link :to="{name: 'view', params: {id: course.id}}"><span>View Course</span></router-link>
+                    <button class="delete-btn" @click="doDelete(courses, course.id)">
             Delete
           </button>
           <confirm-dialog ref="confirmDialog"></confirm-dialog>
-        </tr>
-      </tbody>
-    </table>
+                </tr>
+            </tbody>
+        </table>
   </div>
 </template>
 
@@ -44,10 +43,12 @@ export default {
     data() {
         return {
             courses: {},
+            index: 0
         };
     },
   created() {
-      courseServices.getCourses()
+
+      courseServices.getCourses(0) 
       .then(response => {
         this.courses = response.data
       })
@@ -78,6 +79,25 @@ export default {
             }
           }
       },
+    getNextPage(num){
+      if (num < 0) //dont allow index more less than 0
+      {
+        num = 0;
+        this.index = 0;
+      }
+      console.log("Number: " + num);
+      console.log("Index: " + this.index);
+      courseServices.getCourses(num * 50)
+      .then(response => {
+        this.courses = response.data
+        })
+        .catch(error => {
+        console.log('There was an error:', error.response)
+        })
+        
+    },
+
+  }
 }
 </script>
 

@@ -1,13 +1,13 @@
 <template>
   <div>
-<td> <router-link to="/api/courses">Go Back</router-link></td>
+ <router-link to="/api/courses">Go Back</router-link><
 <p></p>
-<td><router-link :to="{name: 'edit', params: {id: course.id}}"><span>Edit Course</span></router-link></td>
+<router-link :to="{name: 'edit', params: {id: course.id}}"><span>Edit Course</span></router-link>
 <p></p>
    
 
 
- <table class="table table-striped table-bordered">
+ <table class="center">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -92,4 +92,9 @@ export default {
 }
 </script>
 
-<style></style> 
+<style>
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+</style> 
