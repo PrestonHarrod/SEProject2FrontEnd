@@ -1,6 +1,6 @@
 <template>
   <div>
- <button name="cancel" v-on:click.prevent="cancel()">Cancel</button>
+ <button name="cancel" v-on:click.prevent="cancel()">Go Back</button>
 
 <p></p>
 <button name="edit" v-on:click.prevent="updateCourse(course)">Edit</button>
