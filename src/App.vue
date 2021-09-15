@@ -1,17 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <img alt="Vue logo" src="./assets/logo.png" 
+    contain
+    height="300"
+    width="500">
   <div id='app'>
     <div id="nav">
 
     </div>
   </div>
     <router-view />
+    <ConfirmDialog />
 </template>
 
 <script>
+import ConfirmDialog from '@/components/ConfirmDialog.vue'
 export default {
   name: 'App',
   components: {
+    ConfirmDialog
   },
 }
 </script>
