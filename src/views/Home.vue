@@ -2,11 +2,12 @@
 <template>
   <div>
     <h1>Course Home</h1>
+    <button @click="$router.push('/api/courses/courseadd')">Add Course</button>
+    <button @click="getNextPage(--index)">Prev</button>
+    <button @click="getNextPage(++index)">Next</button>
 
 
-    <td><button @click="$router.push('/api/courses/courseadd')">Add Course</button></td>
-
-         <table class="table table-striped table-bordered">
+         <table class="center">
 
             <thead>
                 <tr>
@@ -41,16 +42,37 @@ export default {
     data() {
         return {
             courses: {},
+            index: 0
         };
     },
   created() {
-      courseServices.getCourses() 
+      courseServices.getCourses(0) 
       .then(response => {
         this.courses = response.data
       })
       .catch(error => {
         console.log(error)
       })
+  },
+  methods: {
+    getNextPage(num){
+      if (num < 0) //dont allow index more less than 0
+      {
+        num = 0;
+        this.index = 0;
+      }
+      console.log("Number: " + num);
+      console.log("Index: " + this.index);
+      courseServices.getCourses(num * 50)
+      .then(response => {
+        this.courses = response.data
+        })
+        .catch(error => {
+        console.log('There was an error:', error.response)
+        })
+        
+    },
+
   }
 }
 </script>
