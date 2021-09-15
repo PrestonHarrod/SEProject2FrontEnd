@@ -1,7 +1,7 @@
-
-  devServer: {
-    host: 'localhost',
-  },
-  publicPath: process.env.NODE_ENV === 'development' ? '/' : '/courses/',
-  transpileDependencies: ['vuetify'],
-};
+module.exports = {
+    devServer: {
+      host: 'localhost',
+    },
+    publicPath: process.env.NODE_ENV === 'development' ? '/' : '/courses/',
+    transpileDependencies: ['vuetify'],
+  };
