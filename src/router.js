@@ -1,7 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import CourseList from './views/Home.vue'
 import CourseView from './views/courseView.vue'
-// import CourseAdd from './views/AddCourse.vue'
+import CourseAdd from './views/AddCourse.vue'
 import CourseEdit from './views/EditCourse.vue'
 
   const routes = [
@@ -16,12 +16,12 @@ import CourseEdit from './views/EditCourse.vue'
       component: CourseView,
       props: true
     },
-    // {
-    //     path: '/api/courses/courseadd',
-    //     name: 'add',
-    //     component: CourseAdd,
-    //     props: true
-    //   },
+    {
+        path: '/api/courses/courseadd',
+        name: 'add',
+        component: CourseAdd,
+        props: true
+      },
       {
         path: "/courses/course-edit/:id",
         name: "edit",
