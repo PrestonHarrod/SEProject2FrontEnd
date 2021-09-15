@@ -1,6 +1,6 @@
 <template>
   <div>
- <router-link to="/api/courses">Go Back</router-link><
+ <router-link to="/api/courses">Go Back</router-link>
 <p></p>
 <router-link :to="{name: 'edit', params: {id: course.id}}"><span>Edit Course</span></router-link>
 <p></p>
