@@ -28,7 +28,6 @@ import CourseEdit from './views/EditCourse.vue'
         component: CourseEdit,
         props: true
       },
-    
   ];
   const router = createRouter({
       history: createWebHistory(),
