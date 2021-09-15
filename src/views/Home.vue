@@ -2,9 +2,12 @@
 <template>
   <div>
     <h1>Course Home</h1>
-    <button @click="$router.push('/api/courses/courseAdd')">Add Course</button>
-    <p></p>
+
+
+    <td><button @click="$router.push('/api/courses/courseadd')">Add Course</button></td>
+
          <table class="table table-striped table-bordered">
+
             <thead>
                 <tr>
                     <th>Name</th>
@@ -19,8 +22,8 @@
                     <td>{{course.Name}}</td>
                     <td>{{course.Hours}}</td>
                     <td>{{course["Course Number"]}}</td>
-                    <td><v-btn large outlined>View Course</v-btn></td>
-                   <td><v-btn large outlined>Delete</v-btn></td>
+
+                    <router-link :to="{name: 'view', params: {id: course.id}}"><span>View Course</span></router-link>
                 </tr>
             </tbody>
         </table>
@@ -37,7 +40,7 @@ export default {
     components: {},
     data() {
         return {
-            courses: [],
+            courses: {},
         };
     },
   created() {
@@ -57,16 +60,24 @@ export default {
 <style>
 table {
   border-collapse: collapse;
-  width: 100%;
+  width: 50%;
+
 }
+
 th, td {
   text-align: left;
   padding: 8px;
 }
+
 tr:nth-child(even){background-color: #f2f2f2}
+
 th {
   background-color: #811429
 ;
   color: white;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
