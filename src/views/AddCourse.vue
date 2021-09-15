@@ -53,14 +53,14 @@ export default {
      
         courseServices.addCourse(this.course)
         .then(() => {
-          this.$router.push({ name: 'view' })
+          this.$router.push({ name: 'list' })
         })
         .catch(error => {
           console.log(error)
         })
     },
     cancel() {
-      this.$router.push({ name: 'view' })
+      this.$router.push({ name: 'list' })
     },
   }
 }
