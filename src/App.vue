@@ -1,5 +1,8 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <img alt="Vue logo" src="./assets/logo.png" 
+    contain
+    height="300"
+    width="500">
   <div id='app'>
     <div id="nav">
 
