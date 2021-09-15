@@ -67,6 +67,10 @@ export default {
 </script>
 
 <style scoped>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
 .center {
   margin-left: auto;
   margin-right: auto;

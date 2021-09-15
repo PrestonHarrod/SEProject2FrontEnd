@@ -77,9 +77,8 @@ export default {
             } else {
                 alert('You chose not to delete this course. Doing nothing now.')
             }
-          }
       },
-    getNextPage(num){
+      getNextPage(num){
       if (num < 0) //dont allow index more less than 0
       {
         num = 0;
@@ -94,8 +93,8 @@ export default {
         .catch(error => {
         console.log('There was an error:', error.response)
         })
-        
     },
+      },
 
   }
 

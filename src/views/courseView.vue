@@ -93,6 +93,10 @@ export default {
 </script>
 
 <style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
 .center {
   margin-left: auto;
   margin-right: auto;
