@@ -23,7 +23,7 @@
                     <td>{{course.Hours}}</td>
                     <td>{{course["Course Number"]}}</td>
 
-                    <router-link :to="{name: 'view', params: {id: course.id}}"><span>View Course</span></router-link>
+                    <button name="view" v-on:click.prevent="viewCourse(course)">View Course</button>
                     <button class="delete-btn" @click="doDelete(courses, course.id)">
             Delete
           </button>
@@ -57,6 +57,14 @@ export default {
       })
   },
   methods: {
+   viewCourse(course) {
+          this.$router.push({ name: 'view', params: {id: course.id}})
+        .then(() => {
+        })
+        .catch(error => {
+         console.log(error)
+        })
+    },
     async doDelete(courses, id) {
             const ok = await this.$refs.confirmDialog.show({
                 title: 'Delete Course',
