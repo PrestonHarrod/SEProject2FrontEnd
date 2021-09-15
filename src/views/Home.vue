@@ -2,10 +2,10 @@
 <template>
   <div>
     <h1>Course Home</h1>
-
     <button @click="$router.push('/api/courses/courseadd')">Add Course</button>
     <button @click="getNextPage(--index)">Prev</button>
     <button @click="getNextPage(++index)">Next</button>
+
 
          <table class="center">
 
@@ -23,6 +23,7 @@
                     <td>{{course.Name}}</td>
                     <td>{{course.Hours}}</td>
                     <td>{{course["Course Number"]}}</td>
+
                     <router-link :to="{name: 'view', params: {id: course.id}}"><span>View Course</span></router-link>
                 </tr>
             </tbody>
