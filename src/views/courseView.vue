@@ -1,13 +1,14 @@
 <template>
   <div>
- <router-link to="/api/courses">Go Back</router-link>
+ <button name="cancel" v-on:click.prevent="cancel()">Go Back</button>
+
 <p></p>
-<router-link :to="{name: 'edit', params: {id: course.id}}"><span>Edit Course</span></router-link>
+<button name="edit" v-on:click.prevent="updateCourse(course)">Edit</button>
 <p></p>
    
 
 
- <table class="center">
+ <table class="table table-striped table-bordered">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -61,8 +62,8 @@ export default {
     addForm(){
       this.addCourseDisplay = true;
     },
-    updateCourse() {
-          this.$router.push({ name: 'view'})
+    updateCourse(course) {
+          this.$router.push({ name: 'edit', params: {id: course.id}})
         .then(() => {
         })
         .catch(error => {
@@ -92,9 +93,4 @@ export default {
 }
 </script>
 
-<style>
-.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-</style> 
+<style></style> 
