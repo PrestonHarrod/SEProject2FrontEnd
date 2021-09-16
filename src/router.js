@@ -6,7 +6,7 @@ import CourseEdit from './views/EditCourse.vue'
 
   const routes = [
     {
-      path: '/api/courses',
+      path: '/',
       name: 'list',
       component: CourseList
     },
