@@ -6,7 +6,7 @@ import CourseEdit from './views/EditCourse.vue'
 
   const routes = [
     {
-      path: '/api/courses',
+      path: '/',
       name: 'list',
       component: CourseList
     },
@@ -28,9 +28,10 @@ import CourseEdit from './views/EditCourse.vue'
         component: CourseEdit,
         props: true
       },
+    
   ];
   const router = createRouter({
-      history: createWebHistory(),
+      history: createWebHistory(process.env.BASE_URL),
       routes,
   });
 export default router; 
