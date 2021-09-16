@@ -31,7 +31,7 @@ import CourseEdit from './views/EditCourse.vue'
     
   ];
   const router = createRouter({
-      history: createWebHistory(),
+      history: createWebHistory(process.env.BASE_URL),
       routes,
   });
 export default router; 
